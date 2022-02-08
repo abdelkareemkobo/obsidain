@@ -1,0 +1,21 @@
+--2022-02-08 16:42:35--  https://github.com/shiftkey/desktop/releases/download/release-2.9.0-linux2/GitHubDesktop-linux-2.9.0-linux2.deb
+Resolving github.com (github.com)... 140.82.121.4
+Connecting to github.com (github.com)|140.82.121.4|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://objects.githubusercontent.com/github-production-release-asset-2e65be/93324270/7c937f00-d369-11eb-9348-87047bc22c11?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20220208%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220208T144238Z&X-Amz-Expires=300&X-Amz-Signature=7d6d713345728ad02d408185c861f75a9fab75411381a595df5d0bfa18e4d3b2&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=93324270&response-content-disposition=attachment%3B%20filename%3DGitHubDesktop-linux-2.9.0-linux2.deb&response-content-type=application%2Foctet-stream [following]
+--2022-02-08 16:42:38--  https://objects.githubusercontent.com/github-production-release-asset-2e65be/93324270/7c937f00-d369-11eb-9348-87047bc22c11?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20220208%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220208T144238Z&X-Amz-Expires=300&X-Amz-Signature=7d6d713345728ad02d408185c861f75a9fab75411381a595df5d0bfa18e4d3b2&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=93324270&response-content-disposition=attachment%3B%20filename%3DGitHubDesktop-linux-2.9.0-linux2.deb&response-content-type=application%2Foctet-stream
+Resolving objects.githubusercontent.com (objects.githubusercontent.com)... 185.199.108.133, 185.199.111.133, 185.199.109.133, ...
+Connecting to objects.githubusercontent.com (objects.githubusercontent.com)|185.199.108.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 70700916 (67M) [application/octet-stream]
+Saving to: ‘GitHubDesktop-linux-2.9.0-linux2.deb’
+
+GitHubDesktop-linux-2.9.0-linux2.deb       0%[                                                                                  ]  79.42K  --.-KB/s    eta 116d   GitHubDesktop-linux-2.9.0-linux2.deb       0%[                                                                                  ]  79.42K  --.-KB/s    in 3h 12m  
+
+2022-02-09 00:38:03 (7.03 B/s) - Read error at byte 81323/70700916 (Connection timed out). Retrying.
+
+--2022-02-09 00:38:04--  (try: 2)  https://objects.githubusercontent.com/github-production-release-asset-2e65be/93324270/7c937f00-d369-11eb-9348-87047bc22c11?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20220208%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220208T144238Z&X-Amz-Expires=300&X-Amz-Signature=7d6d713345728ad02d408185c861f75a9fab75411381a595df5d0bfa18e4d3b2&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=93324270&response-content-disposition=attachment%3B%20filename%3DGitHubDesktop-linux-2.9.0-linux2.deb&response-content-type=application%2Foctet-stream
+Connecting to objects.githubusercontent.com (objects.githubusercontent.com)|185.199.108.133|:443... connected.
+HTTP request sent, awaiting response... 401 Unauthorized
+
+Username/Password Authentication Failed.

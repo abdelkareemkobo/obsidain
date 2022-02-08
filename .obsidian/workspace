@@ -1,0 +1,146 @@
+{
+  "main": {
+    "id": "4037de9a269326f8",
+    "type": "split",
+    "children": [
+      {
+        "id": "b8a0d253e63e1801",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "row reduction.md",
+            "mode": "source"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "f1000066c12b1d5c",
+    "type": "split",
+    "children": [
+      {
+        "id": "5902535d90a31dce",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4fccd0098cc78228",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "bca94ebba8646558",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "efc20e17cbe8c1cd",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "08e8b676aee753d8",
+    "type": "split",
+    "children": [
+      {
+        "id": "8a7808c411cc69c9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7c5ef335c0339c4f",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "row reduction.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "ff01bf3abe969cd0",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "80e256b695c9bacf",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "row reduction.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "59ad88a006431e4c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "09b8e9615227cad2",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 287.5
+  },
+  "active": "b8a0d253e63e1801",
+  "lastOpenFiles": [
+    "row reduction.md",
+    "Pasted image 20220130170652.png.md",
+    "0systems_of_linear_equations.md",
+    "systems_of_linear_equations.md",
+    "README.md",
+    "Pasted image 20220130165540.png.md",
+    "note.md",
+    "interploating polynomail means.md",
+    "sound.md",
+    "loudness.md"
+  ]
+}
