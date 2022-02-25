@@ -4,5 +4,12 @@
   "foldIndent": false,
   "foldHeading": false,
   "showFrontmatter": false,
-  "promptDelete": false
+  "promptDelete": false,
+  "communityThemeSortOrder": "release",
+  "pdfExportSettings": {
+    "pageSize": "Letter",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 100
+  }
 }

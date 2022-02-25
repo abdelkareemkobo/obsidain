@@ -4,12 +4,12 @@
     "type": "split",
     "children": [
       {
-        "id": "b8a0d253e63e1801",
+        "id": "004910fdaa753156",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "row reduction.md",
+            "file": "Matlab/Operators.md",
             "mode": "source"
           }
         }
@@ -76,7 +76,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "row reduction.md",
+                "file": "Matlab/Operators.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "row reduction.md",
+                "file": "Matlab/Operators.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -130,17 +130,17 @@
     "direction": "horizontal",
     "width": 287.5
   },
-  "active": "b8a0d253e63e1801",
+  "active": "004910fdaa753156",
   "lastOpenFiles": [
-    "row reduction.md",
-    "Pasted image 20220130170652.png.md",
-    "0systems_of_linear_equations.md",
-    "systems_of_linear_equations.md",
-    "README.md",
-    "Pasted image 20220130165540.png.md",
-    "note.md",
-    "interploating polynomail means.md",
-    "sound.md",
-    "loudness.md"
+    "Matlab/Operators.md",
+    "Matlab/Relational Operators.md",
+    "Untitled.md",
+    "2.md",
+    "1.md",
+    "M/Theories.md",
+    "K/consistent.md",
+    "K/echelon form.md",
+    "K/Linear_algebra questions.md",
+    "README.md"
   ]
 }

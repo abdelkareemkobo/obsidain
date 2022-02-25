@@ -341,6 +341,24 @@ settings:
         label: Rectangle
         value: layout-style-options-rectangle
   -
+    id: hide-titlebar-text
+    title: Hide text in Title Bar
+    title.zh: 隐藏Obsidian标题栏中的文字
+    type: class-toggle
+    default: false
+  -
+    id: hide-vault-name
+    title: Hide vault name
+    title.zh: 隐藏侧边栏中的库名称
+    type: class-toggle
+    default: false
+  -
+    id: bt-status-off
+    title: Reduced Status Bar
+    title.zh: 使用半宽状态栏
+    type: class-toggle
+    default: false
+  -
     id: background-settings
     title: 2. Detail Settings
     title.zh: 2. 细节设置
@@ -1062,12 +1080,6 @@ settings:
     level: 2
     collapsed: true
   -
-    id: bt-status-off
-    title: Reduced Status Bar
-    title.zh: 使用半宽状态栏
-    type: class-toggle
-    default: false
-  -
     id: circular-checkbox
     title: Circular Checkbox
     title.zh: 圆形勾选框
@@ -1529,12 +1541,6 @@ settings:
     level: 3
     collapsed: true
   -
-    id: disable-math-block
-    title: disable math block on quickadd modal
-    title.zh: 禁用Quickadd弹窗界面的公式预览
-    type: class-toggle
-    default: false
-  -
     id: modal-title-icon
     title: modal title icon
     title.zh: 弹窗标题自定义
@@ -1739,6 +1745,31 @@ settings:
     type: class-toggle
     default: false
     description.zh: 如果开启表格内容过长用...省略
+  -
+    id: style-options-for-dialogue-plugin-heading
+    title: 3.7 Dialogue
+    type: heading
+    level: 2
+    collapsed: true
+  -
+    id: dialogue-style
+    title: dialogue Style
+    title.zh: 聊天框样式
+    type: class-select
+    allowEmpty: false
+    default: dialogue-style-default
+    description.zh: Wechat样式适合titleMode：all ，chat样式适合 titleMode：first
+    description: Wechat options is for ’titleMode：all‘ ，chat options is for  ‘titleMode：first’
+    options:
+      -
+        label: Default
+        value: dialogue-style-default
+      -
+        label: Wechat
+        value: dialogue-style-wechat
+      - 
+        label: Chat
+        value: dialogue-style-chat
   -
     id: build-in-style-folder
     title: 4. Built-in Style Intro
@@ -7458,6 +7489,10 @@ span.cm-highlight.cm-inline-code {
   position: relative;
 }
 
+body.hide-titlebar-text .titlebar-text {
+  display: none
+}
+
 .titlebar {
   background-color: var(--background-secondary-alt);
 }
@@ -9171,7 +9206,10 @@ body.list-vertical-line-three:not(.default-icons) .markdown-preview-view ol li.i
   opacity: 0.5;
 }
 
-body:not(.list-no-border):not(.rainbow-lines) .mod-cm6.is-live-preview .HyperMD-list-line.cm-line:not([class*="quote"]):not([class*="nobullet"]) .cm-hmd-list-indent::before {
+body:not(.list-no-border):not(.rainbow-lines) .mod-cm6  .HyperMD-list-line.HyperMD-list-line-1.cm-line:not([class*="quote"]):not([class*="nobullet"]) .cm-hmd-list-indent::before {
+  content: none;
+  }
+body:not(.list-no-border):not(.rainbow-lines) .mod-cm6 .HyperMD-list-line.cm-line:not([class*="quote"]):not([class*="nobullet"]) .cm-hmd-list-indent::before {
   content: '';
   font-family: var(--rb-indent-font-family) !important;
   font-size: var(--rb-indent-font-size) !important;
@@ -9267,10 +9305,10 @@ body.rainbow-lines .mod-cm6 .HyperMD-list-line.cm-line .cm-hmd-list-indent {
   font-size: var(--rb-indent-font-size) !important;
 }
 
-body.rainbow-lines .mod-cm6.is-live-preview  .HyperMD-list-line.HyperMD-list-line-1.cm-line:not([class*="quote"]):not([class*="nobullet"]) .cm-hmd-list-indent::before {
+body.rainbow-lines .mod-cm6  .HyperMD-list-line.HyperMD-list-line-1.cm-line:not([class*="quote"]):not([class*="nobullet"]) .cm-hmd-list-indent::before {
 content: none;
 }
-body.rainbow-lines .mod-cm6.is-live-preview .HyperMD-list-line.cm-line:not([class*="quote"]):not([class*="nobullet"]) .cm-hmd-list-indent::before {
+body.rainbow-lines .mod-cm6 .HyperMD-list-line.cm-line:not([class*="quote"]):not([class*="nobullet"]) .cm-hmd-list-indent::before {
   content: '';
   font-family: var(--rb-indent-font-family) !important;
   font-size: var(--rb-indent-font-size) !important;
@@ -9964,8 +10002,12 @@ div.CodeMirror-activeline .CodeMirror-line span.cm-formatting-link.cm-strong.cm-
   margin-top: 20px;
   resize: both !important;
 }
-
-
+/*修复Itinerary插件显示问题*/
+.markdown-preview-view .markdown-preview-section .block-language-itinerary.fc table
+{
+	overflow:unset;
+	
+}
 
 /*modified from https://codepen.io/brettdewoody/pen/oBjbbB */
 body.no-wrapped-table table {
@@ -10029,11 +10071,15 @@ body.overflow-x-dvtable table.dataview  th {
   max-width: 18em;
 }
 
-.markdown-preview-view table tbody>tr:nth-child(odd) {
+.markdown-preview-view table tbody>tr:nth-child(odd),
+.markdown-source-view table tbody>tr:nth-child(odd)
+ {
   background-color: var(--table-background-color-odd);
 }
 
-.markdown-preview-view table tbody>tr {
+.markdown-preview-view table tbody>tr,
+.markdown-source-view table tbody>tr 
+{
   background-color: var(--table-background-color);
 }
 
@@ -10043,22 +10089,28 @@ body.overflow-x-dvtable table.dataview  th {
   border: 1px solid var(--table-border-color);
 }
 
-.markdown-preview-view th {
+.markdown-preview-view th,.markdown-source-view th {
   background-color: var(--table-thead-background-color);
   font-family: var(--font-family-strong);
 }
 
 /*table hover*/
-.markdown-preview-view td:hover {
+.markdown-preview-view td:hover,
+.markdown-source-view td:hover
+ {
   background-color: var(--table-hover-color);
 }
 
 /*table raw hover*/
-.markdown-preview-view table tbody>tr:hover {
+.markdown-preview-view table tbody>tr:hover,
+.markdown-source-view table tbody>tr:hover
+ {
   background-color: var(--table-hover-raw-color);
 }
 
-.markdown-preview-view th:hover {
+.markdown-preview-view th:hover,
+.markdown-source-view th:hover
+ {
   background-color: var(--table-hover-thead-color);
 }
 
@@ -10677,8 +10729,7 @@ div.CodeMirror-activeline .CodeMirror-line span.cm-formatting.cm-formatting-head
 }
 
 /* images : reduce displayed size of embedded files, zoom on hover */
-.markdown-preview-view img:not([class="emoji"]),
-.markdown-preview-view video {
+.markdown-preview-view img:not([class="emoji"]){
   max-width: min(100%, 800px);
   margin-left: auto;
   margin-right: auto;
@@ -10718,6 +10769,11 @@ body:not(.image-zoom) .markdown-reading-view img:not([class="emoji"]):active,
   display: block;
   margin: auto;
 }
+
+body.hide-vault-name .nav-folder.mod-root>.nav-folder-title {
+  display: none;
+}
+
 
 /* file explorer :Wrap long nav text and some paddings */
 .nav-file-title,
@@ -15025,6 +15081,42 @@ body.list-vertical-line-three .kanban-plugin__markdown-preview-view ol ol::befor
       --cards-width: 87.04px;
       }
 }
+
+img[alt^="bookcover"]{
+  border-radius: 8px; 
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.theme-light progress::-webkit-progress-bar { 
+background: #cccccc; 
+}
+.theme-dark progress::-webkit-progress-bar { 
+background: #1a1919; 
+}
+
+.cards progress{
+position:absolute;
+margin-top: -10px;
+ overflow: hidden;
+ height: 3px;
+ background:#f0ec05; 
+}
+.cards progress.yellow::-moz-progress-bar { background: #e78f0c; }
+.cards progress.yellow::-webkit-progress-value  {
+border-radius: 1em;
+background: #e78f0c; 
+
+}
+
+.cards progress.hot::-moz-progress-bar { background: #fa7131dc; }
+
+.cards progress.hot::-webkit-progress-value  {
+border-radius: 1em;
+background: #fa7131dc; 
+
+}
+
+
 .cards table.dataview tbody {
 
   display:grid;
@@ -15135,12 +15227,17 @@ padding: 0;
   box-orient: vertical;
   height: auto;
   max-height: 36px;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.1;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-
+.cards table.dataview tbody>tr>td>button {
+  font-size: 12px;
+  background-color: transparent;
+  padding: 0;
+   
+}
 .cards table.dataview tbody>tr>td:nth-child(2) {
   margin-top: 10px;
    
@@ -15383,9 +15480,7 @@ span.cm-formatting.cm-formatting-highlight.cm-strong.cm-em.cm-highlight.hmd-hidd
 .modal-container .modal-content textarea {
   height: 18rem !important;
 }
-body.disable-math-block .modal .modal-content .math.math-block{
-  display:none;
-}
+
 
 /* ================================== */
 /* ============ QuickAdd ============ */
@@ -16426,6 +16521,165 @@ and (min-width : 400px)
     background: transparent;
   }
 }
+
+/*=======================
+===  dialogue by cuman====
+========================*/
+
+
+body.dialogue-style-wechat .dialogue-plugin-block-wrapper {
+  margin-bottom: 15px;
+  position: relative;
+  display: flex;
+}
+body.dialogue-style-wechat .dialogue-plugin-message
+{
+  background-color:unset;
+}
+
+body.dialogue-style-wechat .dialogue-plugin-comment-wrapper::before {
+  content: "";
+  box-sizing: border-box;
+  width: 100%;
+  height: 1px;
+  background-color: #bfe2fb;
+  flex: 1;
+  margin: 20px 0;
+  text-align: center;
+}
+body.dialogue-style-wechat .dialogue-plugin-comment-wrapper::after {
+  content: "";
+  box-sizing: border-box;
+  width: 100%;
+  height: 1px;
+  background-color: #bfe2fb;
+  flex: 1;
+  margin: 20px 0;
+  text-align: center;
+}
+body.dialogue-style-wechat .dialogue-plugin-comment-wrapper .dialogue-plugin-comment
+{
+  margin: 7px;
+}
+
+body.dialogue-style-wechat .dialogue-plugin-message .dialogue-plugin-message-title {
+  font-size: 24px;
+  height: 50px;
+  background: #f1f1f1;
+  border-radius: 8px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  background-position: center;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color:unset;
+}
+
+body.dialogue-style-wechat .dialogue-plugin-message-wrapper-right .dialogue-plugin-message-title
+{
+  right: 0;
+
+}
+body.dialogue-style-wechat .dialogue-plugin-message-wrapper-left .dialogue-plugin-message .dialogue-plugin-message-content{
+  margin-right: 0px;
+}
+body.dialogue-style-wechat .dialogue-plugin-message-wrapper-right .dialogue-plugin-message .dialogue-plugin-message-content{
+  color: black;
+    background: #98e970;
+    margin-left: 0px;
+}
+body.dialogue-style-wechat .dialogue-plugin-message-wrapper-right .dialogue-plugin-message .dialogue-plugin-message-content:after {
+  background: #98e970;
+  left: auto;
+  right: -5px;
+  border-top-right-radius: 2px;
+  border-bottom-left-radius: 0;
+}
+body.dialogue-style-wechat .dialogue-plugin-message .dialogue-plugin-message-content {
+  background: #fff;
+  padding: 12px 18px;
+  font-size: large;
+  border-radius: 8px;
+  margin-right: 55px;
+  word-break: break-all;
+  margin-left: 55px;
+  display: inline-block;
+  position: relative;
+  line-height: normal;
+  min-height: 50px;
+}
+.dialogue-style-wechat.theme-dark .dialogue-plugin-message .dialogue-plugin-message-content {
+  background:#343434;
+}
+
+
+body.dialogue-style-wechat .dialogue-plugin-message .dialogue-plugin-message-content:after {
+  content: '';
+  background: #fff;
+  width: 12px;
+  height: 12px;
+  border-bottom-left-radius: 2px;
+  top: 20px;
+  left: -6px;
+  position: absolute;
+  transform: rotate(45deg);
+}
+
+
+.dialogue-style-wechat.theme-dark .dialogue-plugin-message .dialogue-plugin-message-content:after {
+  background: #343434;
+}
+
+/*dialogue-style-chat*/
+
+.dialogue-style-chat.theme-dark .dialogue-plugin-message-wrapper-left .dialogue-plugin-message{
+  color: #cccccc;
+  background: #343434;
+  box-shadow: 0px 2px 1px 0px #191818,0px 2px 1px 0px #343434;
+}
+.dialogue-style-chat.theme-dark .dialogue-plugin-message-wrapper-right .dialogue-plugin-message{
+  color: #333333;
+  background-image: -webkit-linear-gradient(left, #cccccc,#cccccc);
+}
+body.dialogue-style-chat .dialogue-plugin-message-wrapper-left .dialogue-plugin-message{
+  font-size: 15px;
+  background: #f5f8ff;
+  letter-spacing: 1.5px;
+    color: #333;
+    border-radius:12px;
+    border-bottom-left-radius: 0px;
+    margin-left: 6px;
+    box-shadow: 0px 2px 1px 0px #f3f3f3,0px 2px 1px 0px #f3f3f3;
+    margin-right: 3em;
+    align-self: flex-end;
+ }
+
+ body.dialogue-style-chat .dialogue-plugin-message-wrapper-right .dialogue-plugin-message{
+  font-size: 15px;
+  letter-spacing: 1.5px;
+  color: #333;
+  border-radius: 12px;
+  border-bottom-right-radius: 0px;
+  background-image: -webkit-linear-gradient(left, #cee4ff,#d7eaff);
+  margin-right: 6px;
+  align-self: flex-end;
+  margin-left: 3em;
+  
+} 
+
+body.dialogue-style-chat .dialogue-plugin-message-title {
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-align: center;
+    color: rgb(236, 236, 236);
+    font-weight: bold;
+}
+
+
+
 
 /*===================================================*/
 /*=================   Live Preview   ================*/
