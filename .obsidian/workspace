@@ -133,6 +133,7 @@
   "active": "004910fdaa753156",
   "lastOpenFiles": [
     "Matlab/Operators.md",
+    "note.md",
     "Matlab/Relational Operators.md",
     "Untitled.md",
     "2.md",
@@ -140,7 +141,6 @@
     "M/Theories.md",
     "K/consistent.md",
     "K/echelon form.md",
-    "K/Linear_algebra questions.md",
-    "README.md"
+    "K/Linear_algebra questions.md"
   ]
 }
